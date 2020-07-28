@@ -29,6 +29,7 @@ public class Main {
 //        }
 
 
+/*
         MyPriorityQueue<Integer> mpq = new MyPriorityQueue<>();
 
         mpq.insert(5);
@@ -41,6 +42,26 @@ public class Main {
         for (int i = 0; i < 5 ; i++) {
             System.out.println(mpq.remove());
         }
+*/
 
+        MyStack<String> mst = new MyStack();
+        mst.push("Грут");
+        mst.push("есть");
+        mst.push("я");
+
+        new RevReader<MyStack>(mst);
+
+        System.out.println();
+
+        MyDeque<Integer> deq = new MyDeque<>();
+        deq.insertRight(1);
+        deq.insertRight(2);
+        deq.insertRight(3);
+
+        System.out.println(deq);
+
+        for (int i = 0; i < 3 ; i++) {
+            System.out.println(deq.removeRight());
+        }
     }
 }
