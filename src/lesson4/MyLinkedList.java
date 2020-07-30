@@ -1,11 +1,17 @@
 package lesson4;
 
 import java.util.Iterator;
+import java.util.ListIterator;
+import java.util.NoSuchElementException;
 
 public class MyLinkedList<T> implements Iterable<T>{
     private Node first;
     private Node last;
     private int size;
+
+    public ListIterator<T> listIterator() {
+        return new ListIter();
+    }
 
     @Override
     public Iterator<T> iterator() {
@@ -38,6 +44,72 @@ public class MyLinkedList<T> implements Iterable<T>{
         }
     }
 
+    private class ListIter implements ListIterator<T> {
+        Node current = new Node(null, first);
+        int index = -1;
+
+        @Override
+        public boolean hasNext() {
+            return current.next != null;
+        }
+
+        @Override
+        public T next() {
+            if (hasNext()) {
+                current = current.next;
+                index++;
+                return current.value;
+            } else  {
+                throw new NoSuchElementException();
+            }
+        }
+
+        @Override
+        public boolean hasPrevious() {
+            return current.previous != null;
+        }
+
+        @Override
+        public T previous() {
+            if (hasPrevious()) {
+                current = current.previous;
+                index--;
+                return current.value;
+            } else {
+                throw new NoSuchElementException();
+            }
+        }
+
+        @Override
+        public int nextIndex() {
+            if (hasNext()) {
+                return (index + 1);
+            } else return size;
+        }
+
+        @Override
+        public int previousIndex() {
+            if (hasPrevious()) {
+                return (index - 1);
+            } else return -1;
+        }
+
+        @Override
+        public void remove() {
+           throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public void set(T t) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public void add(T t) {
+            throw new UnsupportedOperationException();
+        }
+    }
+
     private class Iter implements Iterator<T>{
         Node current = new Node(null, first);
         @Override
@@ -50,6 +122,7 @@ public class MyLinkedList<T> implements Iterable<T>{
             current = current.next;
             return current.value;
         }
+
     }
 
     public void insertFirst(T item) {
