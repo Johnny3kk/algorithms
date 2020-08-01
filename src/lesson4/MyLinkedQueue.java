@@ -4,7 +4,7 @@ import java.util.EmptyStackException;
 
 public class MyLinkedQueue<T> {
 
-    MyLinkedList<T> queue = new MyLinkedList<>();
+    private MyLinkedList<T> queue = new MyLinkedList<>();
 
     public void insert(T item) {
         if (queue.isEmpty()) queue.insertFirst(item);
