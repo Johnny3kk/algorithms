@@ -61,81 +61,49 @@ public class Main {
 //
 //        System.out.println(msal);
 //
-//        System.out.println(msal.binaryFind(4));
+//        System.out.println(msal.recBinaryFind(2));
 
 
-//        MyArrayList<Integer> mal = new MyArrayList<>(15);
-//        Random rand = new Random();
-//        for (int i = 0; i <10 ; i++) {
-//            mal.add(rand.nextInt(20));
-//        }
-//        System.out.println(mal);
-//
-////        mal.selectionSort();
-////        mal.insertionSort();
-////        mal.bubbleSort(Comparator.naturalOrder());
+
+        MyArrayList<Integer> mal = new MyArrayList<>(1000000);
+        Random rand = new Random();
+        for (int i = 0; i <1000000 ; i++) {
+            mal.add(rand.nextInt(1000000));
+        }
+
+        long begin = System.currentTimeMillis();
+
+//        mal.selectionSort();
+//        mal.insertionSort();
+//        mal.bubbleSort(Comparator.naturalOrder());
 //        mal.bubbleSort(Comparator.reverseOrder());
-//
+//        mal.quickSort();// O(n * log n)
+        mal.timSort();
+
+        long end = System.currentTimeMillis();
+        System.out.println("time: "+ (end- begin)+" ms");
+
+
+
+
 //        System.out.println(mal);
 
 
-/*        MyArrayList<String> myArrayList = new MyArrayList<>();
-        myArrayList.add("aaa");
-        myArrayList.add("BBB");
-        myArrayList.add("bbbbbbb");
-        myArrayList.add("ccc");
-        myArrayList.add("AAAAA");
-        myArrayList.add("xxx");
-        myArrayList.add("YYYyy");
-
-        System.out.println(myArrayList);
-//        myArrayList.bubbleSort(Comparator.naturalOrder());
-        myArrayList.bubbleSort(Comparator.comparingInt(String::length));
-//        myArrayList.bubbleSort(Comparator.comparingInt(String::length).reversed());
-//        myArrayList.bubbleSort(Comparator.comparingInt(String::length).thenComparing(String::compareToIgnoreCase));
-        System.out.println(myArrayList);*/
-
-        int mass = 100000;
-        MyArrayList<Integer> mal = new MyArrayList<>(mass);
-        long startTime = System.currentTimeMillis();
-        for (int i = 0; i < mass; i++) {
-            mal.add((int) (Math.random() * mass));
-        }
-        long endTime = System.currentTimeMillis();
-        System.out.println(mal);
-        System.out.println("Total execution time of building: " + (endTime-startTime) + "ms");
-
-        MyArrayList<Integer> mal1 = new MyArrayList<>(mass);
-        for (int i = 0; i < mass; i++) {
-            mal1.add(mal.get(i));
-        }
-        long startTime1 = System.currentTimeMillis();
-        mal1.selectionSort();
-        long endTime1 = System.currentTimeMillis();
-        System.out.println(mal1);
-        System.out.println("Total execution time of Selection Sorting: " + (endTime1-startTime1) + "ms");
-
-        MyArrayList<Integer> mal2 = new MyArrayList<>(mass);
-        for (int i = 0; i < mass; i++) {
-            mal2.add(mal.get(i));
-        }
-        long startTime2 = System.currentTimeMillis();
-        mal2.insertionSort();
-        long endTime2 = System.currentTimeMillis();
-        System.out.println(mal2);
-        System.out.println("Total execution time of Insertion Sorting: " + (endTime2-startTime2) + "ms");
-
-        MyArrayList<Integer> mal3 =  new MyArrayList<>(mass);
-        for (int i = 0; i < mass; i++) {
-            mal3.add(mal.get(i));
-        }
-        long startTime3 = System.currentTimeMillis();
-        mal3.bubbleSort();
-        long endTime3 = System.currentTimeMillis();
-        System.out.println(mal3);
-        System.out.println("Total execution time of Bubble Sorting: " + (endTime3-startTime3) + "ms");
-
-
+//        MyArrayList<String> myArrayList = new MyArrayList<>();
+//        myArrayList.add("aaa");
+//        myArrayList.add("BBB");
+//        myArrayList.add("bbbbbbb");
+//        myArrayList.add("ccc");
+//        myArrayList.add("AAAAA");
+//        myArrayList.add("xxx");
+//        myArrayList.add("YYYyy");
+//
+//        System.out.println(myArrayList);
+////        myArrayList.bubbleSort(Comparator.naturalOrder());
+//        myArrayList.bubbleSort(Comparator.comparingInt(String::length));
+////        myArrayList.bubbleSort(Comparator.comparingInt(String::length).reversed());
+////        myArrayList.bubbleSort(Comparator.comparingInt(String::length).thenComparing(String::compareToIgnoreCase));
+//        System.out.println(myArrayList);
     }
 
 }

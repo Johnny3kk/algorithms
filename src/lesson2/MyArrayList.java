@@ -1,5 +1,6 @@
 package lesson2;
 
+import java.util.Arrays;
 import java.util.Comparator;
 
 public class MyArrayList<T extends Comparable<T>> {
@@ -160,6 +161,44 @@ public class MyArrayList<T extends Comparable<T>> {
                 return;
             }
         }
+    }
+
+    public void quickSort() {
+        quickSort(0, size - 1);
+    }
+
+    private void quickSort(int lo, int hi) {
+        if (lo >= hi) {
+            return;
+        }
+        int mid = lo + (hi - lo) / 2;
+        T opora = list[mid];
+
+        int i = lo;
+        int j = hi;
+        while (i <= j) {
+            while (less(list[i], opora)) {
+                i++;
+            }
+            while (less(opora, list[j])) {
+                j--;
+            }
+            if (i <= j) {
+                swap(i, j);
+                i++;
+                j--;
+            }
+        }
+        if (lo < j) {
+            quickSort(lo, j);
+        }
+        if (hi > i) {
+            quickSort(i, hi);
+        }
+    }
+
+    public void timSort(){
+        Arrays.sort(list);
     }
 
 }
