@@ -164,4 +164,26 @@ public class MyTreeMap<Key extends Comparable<Key>, Value> {
                 node.key + " = " + node.value +
                 " " + toString(node.right);
     }
+
+    public int isNotBalanced() {
+        if (isBalanced(root)) return 0;
+        else return 1;
+    }
+
+    private boolean isBalanced(Node node) {
+        if (node == null) return true;
+        if (isBalanced(node.left) &&
+                isBalanced(node.right) &&
+                Math.abs(height(node.left) - height(node.right)) <= 2) return true;
+        return false;
+    }
+
+    public int getHeight() {
+        return height(root) - 1;
+    }
+
+    private int height(Node node) {
+        if (node == null) return 0;
+        else return 1 + Math.max(height(node.left), height(node.right));
+    }
 }
