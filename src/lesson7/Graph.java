@@ -40,5 +40,6 @@ public class Graph {
             return;
         }
         adjList[v2].add(v1);
+        edgeCount++;
     }
 }
