@@ -15,20 +15,26 @@ public class Main {
 
 
         ChainingHashMap<Integer, String> chm = new ChainingHashMap<>();
-//        chm.put(1,"one");
-//        chm.put(2,"two");
-//        chm.put(3,"three");
-//        chm.put(4,"four");
-//        chm.put(5,"five");
+        chm.put(1,"one");
+        chm.put(48,"kapa");
+        chm.put(80,"none");
+        chm.put(2,"two");
+        chm.put(3,"three");
+        chm.put(3,"more");
+        chm.put(4,"four");
+        chm.put(5,"five");
 //
 //        System.out.println(chm.get(3));
+//
+//        Random random = new Random();
+//
+//        for (int i = 0; i < 6; i++) {
+//            chm.put(random.nextInt(100),"");
+//        }
 
-        Random random = new Random();
+        System.out.println(chm);
 
-        for (int i = 0; i < 6; i++) {
-            chm.put(random.nextInt(100),"");
-        }
-
+        chm.delete(48);
         System.out.println(chm);
     }
 }
